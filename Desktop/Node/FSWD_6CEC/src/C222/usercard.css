@@ -1,0 +1,27 @@
+.user-cart{
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 300px;
+}
+.user-cart button{
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.user-cart img{
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+}
+.user-cart h3{
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+.user-cart h2{
+    margin-top: 0;
+    font-size: 1.5em;
+}
