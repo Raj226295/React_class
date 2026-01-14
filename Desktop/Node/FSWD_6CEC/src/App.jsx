@@ -295,33 +295,115 @@
 // }
 // export default App;
 // ===============14/01/26======Room_pre7=====================
-import { useState } from "react";
-import Radio from "./room_pre7/radio.jsx"
-function App(){
-  const[gender,setGender]=useState('female');
-  const[city,setCity]=useState('lucknow');
-  return(
-    <div>
-      <h1> Handale Radio Dropdown</h1>
-      <h4>Select gender</h4>
-      <input type="radio" onChange={(event)=>setGender(event.target.value)} name="geneder" value={"male"} checked={gender=="male"} id="male"/>
-      <label htmlFor="male">Male</label>
-      <input type="radio"onChange={(event)=>setGender(event.target.value)} name="geneder" value={"female"} checked={gender=='female'} id="female"/>
-      <label htmlFor="female">Female</label>
-      <h2>Select Gender:{gender}</h2>
+// import { useState } from "react";
+// import Radio from "./room_pre7/radio.jsx"
+// function App(){
+//   const[gender,setGender]=useState('female');
+//   const[city,setCity]=useState('lucknow');
+//   return(
+//     <div>
+//       <h1> Handale Radio Dropdown</h1>
+//       <h4>Select gender</h4>
+//       <input type="radio" onChange={(event)=>setGender(event.target.value)} name="geneder" value={"male"} checked={gender=="male"} id="male"/>
+//       <label htmlFor="male">Male</label>
+//       <input type="radio"onChange={(event)=>setGender(event.target.value)} name="geneder" value={"female"} checked={gender=='female'} id="female"/>
+//       <label htmlFor="female">Female</label>
+//       <h2>Select Gender:{gender}</h2>
 
-      <br/><br/><br/>
-      <h4>Select City</h4>
-      <select onChange={(event)=>setCity(event.target.value)} defaultValue={"lucknow"}>
-        <option value="noida">Noida</option>
-        <option value="delhi">Delhi</option>
-        <option value="lucknow">Lucknow</option>
-        <option value="mumbai">Mumbai</option>
-        <option value="bihar">Bihar</option>
-      </select>
-      <h2>Selected City:{city}</h2>
+//       <br/><br/><br/>
+//       <h4>Select City</h4>
+//       <select onChange={(event)=>setCity(event.target.value)} defaultValue={"lucknow"}>
+//         <option value="noida">Noida</option>
+//         <option value="delhi">Delhi</option>
+//         <option value="lucknow">Lucknow</option>
+//         <option value="mumbai">Mumbai</option>
+//         <option value="bihar">Bihar</option>
+//       </select>
+//       <h2>Selected City:{city}</h2>
       
+//     </div>
+//   )
+// }
+// export default App;
+
+// ==================14/01/26 Room_pre8=========================
+
+function App() {
+
+  const userData = [
+    { name: 'anil', age: 22, city: "Lucknow" },
+    { name: "sam", age: 25, city: "Delhi" },
+    { name: "rohit", age: 30, city: "Mumbai" },
+    { name: "rahul", age: 28, city: "Chennai" },
+    { name: "sachin", age: 35, city: "Kolkata" }
+  ];
+
+  return (
+    <div>
+      <h1>Loop in JSX with map function</h1>
+
+      <table border="1" cellPadding={10} cellSpacing={0}>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>City</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {userData.map((user, index) => (
+            <tr key={index}>
+              <td>{user.name}</td>
+              <td>{user.age}</td>
+              <td>{user.city}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      <h1>Dummy data</h1>
+
+      <table border="1" cellPadding={10} cellSpacing={0}>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>City</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>anil</td>
+            <td>22</td>
+            <td>Lucknow</td>
+          </tr>
+          <tr>
+            <td>sam</td>
+            <td>25</td>
+            <td>Delhi</td>
+          </tr>
+          <tr>
+            <td>rohit</td>
+            <td>30</td>
+            <td>Mumbai</td>
+          </tr>
+          <tr>
+            <td>rahul</td>
+            <td>28</td>
+            <td>Chennai</td>
+          </tr>
+          <tr>
+            <td>sachin</td>
+            <td>35</td>
+            <td>Kolkata</td>
+          </tr>
+        </tbody>
+      </table>
+
     </div>
-  )
+  );
 }
+
 export default App;
