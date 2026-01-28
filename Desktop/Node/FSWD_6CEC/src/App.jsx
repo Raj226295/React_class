@@ -26,6 +26,11 @@
 //   );
 // }
 
+// import Clock from "./room11_pre/Clock";
+
+// import Hook1 from "./CEC23012026/Hook";
+// import Collage from "./room10_pre/Collage";
+
 // export default App;
 
 // ye hai contact list ka app js file
@@ -408,28 +413,276 @@
 
 // export default App;
 // ======================Resuse cpmponents in loop======room_pre9=====14/01/26====
-import User from "./room_pre8/user.jsx";
-function App() {
 
-  const userData = [
-    { name: 'anil', age: 22, city: "Lucknow" },
-    { name: "sam", age: 25, city: "Delhi" },
-    { name: "rohit", age: 30, city: "Mumbai" },
-    { name: "rahul", age: 28, city: "Chennai" },
-    { name: "sachin", age: 35, city: "Kolkata" }
-  ];
 
-  return (
-    <div>
-      <h1>Loop in JSX with map function</h1> 
-      {
-        userData.map((user,index)=>(
-         <div key ={index}><User user={user}/></div>
-      ))}
+// import User from "./room_pre8/user.jsx";
+// function App() {
+
+//   const userData = [
+//     { name: 'anil', age: 22, city: "Lucknow" },
+//     { name: "sam", age: 25, city: "Delhi" },
+//     { name: "rohit", age: 30, city: "Mumbai" },
+//     { name: "rahul", age: 28, city: "Chennai" },
+//     { name: "sachin", age: 35, city: "Kolkata" }
+//   ];
+
+//   return (
+//     <div>
+//       <h1>Loop in JSX with map function</h1> 
+//       {
+//         userData.map((user,index)=>(
+//          <div key ={index}><User user={user}/></div>
+//       ))}
 
      
-    </div>
-  );
-}
+//     </div>
+//   );
+// }
 
+// export default App;
+
+// ================================19/01/26=========Stopwatch / Timer App=========================================================
+
+// import React, { useState, useEffect } from "react";
+
+// function App() {
+//   const [time, setTime] = useState(0);
+//   const [isRunning, setIsRunning] = useState(false);
+//   const [laps, setLaps] = useState([]);
+
+//   useEffect(() => {
+//     let interval;
+
+//     if (isRunning) {
+//       interval = setInterval(() => {
+//         setTime((prev) => prev + 10);
+//       }, 10);
+//     }
+
+//     return () => clearInterval(interval);
+//   }, [isRunning]);
+
+//   return (
+//     <div style={{ textAlign: "center", marginTop: "50px" }}>
+//       <h1>⏱️ Stopwatch</h1>
+
+//       <h2>
+//         {("0" + Math.floor((time / 60000) % 60)).slice(-2)} :
+//         {("0" + Math.floor((time / 1000) % 60)).slice(-2)} :
+//         {("0" + ((time / 10) % 100)).slice(-2)}
+//       </h2>
+
+//       <button onClick={() => setIsRunning(true)}>Start</button>
+//       <button onClick={() => setIsRunning(false)}>Stop</button>
+//       <button onClick={() => {
+//         setTime(0);
+//         setLaps([]);
+//         setIsRunning(false);
+//       }}>
+//         Reset
+//       </button>
+//       <button onClick={() => isRunning && setLaps([...laps, time])}>
+//         Lap
+//       </button>
+
+//       <h3>Laps</h3>
+//       <ul>
+//         {laps.map((lap, index) => (
+//           <li key={index}>
+//             Lap {index + 1} :
+//             {("0" + Math.floor((lap / 60000) % 60)).slice(-2)} :
+//             {("0" + Math.floor((lap / 1000) % 60)).slice(-2)} :
+//             {("0" + ((lap / 10) % 100)).slice(-2)}
+//           </li>
+//         ))}
+//       </ul>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+//  ========================19/01/26=========Counter App=========================================================
+// import { useState } from "react";
+
+// function App() {
+//   const totalTexts = 50;
+//   const [current, setCurrent] = useState(1);
+
+//   const handleNext = () => {
+//     if (current < totalTexts) {
+//       setCurrent(current + 1);
+//     }
+//   };
+
+//   const handleBack = () => {
+//     if (current > 1) {
+//       setCurrent(current - 1);
+//     }
+//   };
+
+//   const handleInputChange = (e) => {
+//     const value = Number(e.target.value);
+//     if (value >= 1 && value <= totalTexts) {
+//       setCurrent(value);
+//     }
+//   };
+
+//   return (
+//     <div style={{ padding: "20px" }}>
+//       <ul>
+//         {Array.from({ length: current }, (_, index) => (
+//           <li key={index}>
+//             <h1>Text {index + 1}</h1>
+//           </li>
+//         ))}
+//       </ul>
+
+//       <input
+//         type="number"
+//         value={current}
+//         min="1"
+//         max={totalTexts}
+//         onChange={handleInputChange}
+//       />
+
+//       <br /><br />
+
+//       <button onClick={handleBack}>Back</button>
+//       <button onClick={handleNext} style={{ marginLeft: "10px" }}>
+//         Next
+//       </button>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+// ========================20/01/26=========Form Validation App=========================================================
+// import User from "./room_pre8/user.jsx";
+// function App() {
+
+//   const userData = [
+//     { name: 'anil', age: 22, city: "Lucknow" },
+//     { name: "sam", age: 25, city: "Delhi" },
+//     { name: "rohit", age: 30, city: "Mumbai" },
+//     { name: "rahul", age: 28, city: "Chennai" },
+//     { name: "sachin", age: 35, city: "Kolkata" }
+//   ];
+
+//   return (
+//     <div>
+//       <h1>Loop in JSX with map function</h1> 
+//       {
+//         userData.map((user,index)=>(
+//          <div key ={index}><User user={user}/></div>
+//       ))}
+
+     
+//     </div>
+//   );
+// }
+// export default App;
+// =======================20/01/26=========Clock=========================================================
+// import Clock from "./room_clock/clock.jsx";
+// import { useState } from "react";
+// function App(){
+//   const[time,setTime]=useState(0);
+//   return(
+//     <div>
+//       <h1> Digital Clock in React JS</h1>
+//       <Clock/>
+//     </div>
+//   )
+// }
+// export default App;
+
+//   ==============================22/01/26==================================================================
+
+// function App() {
+
+//   const collageData = [
+//     {
+//       name: "ITC",
+//       address: "Lucknow",
+//       website: "www.itc.edu.in",
+//       student: [
+//         { name: "Anil", age: 22 },
+//         { name: "Rohit", age: 24 },
+//         { name: "Suman", age: 23 },
+//       ],
+//     },
+//     {
+//       name: "IIT",
+//       address: "Delhi",
+//       website: "www.iit.edu.in",
+//       student: [
+//         { name: "Raj", age: 25 },
+//         { name: "Simran", age: 22 },
+//         { name: "Amit", age: 24 },
+//       ],
+//     },
+//     {
+//       name: "NIT",
+//       address: "Noida",
+//       website: "www.nit.edu.in",
+//       student: [
+//         { name: "Vikram", age: 23 },
+//         { name: "Neha", age: 21 },
+//         { name: "Karan", age: 26 },
+//       ],
+//     }
+//   ];
+
+//   return (
+//     <div>
+//       <h1>Nested looping with component</h1>
+
+//       {collageData.map((collage) => (
+//         <Collage key={collage.name} collage={collage} />
+//       ))}
+
+//     </div>
+//   );
+// }
+
+// export default App;
+// =============================24/01/26==================================================================
+// import Hook1 from "./CEC23012026/Hook";
+// import Hook2 from "./CEC23012026/Hook2";
+// import  Hook3 from "./CEC23012026/Hook3";
+// function App() {
+//   return (
+//     <div>
+//       <h1> Hello from App component</h1>
+//       {/* <Hook1/> */}
+//       {/* <Hook2/> */}
+//       <Hook3/>
+//     </div>
+//   )
+// }
+// export default App; 
+
+// =============================28/01/26==================================================================
+import { useState } from "react";
+import Clock from "./room11_pre/Clock.jsx";
+function App(){
+  const[color, setColor]=useState("red");
+
+  return(
+    <div>
+      <h1>
+        <h1>Digital Clock in React js React Js</h1>
+        <select onChange={(e) =>setColor(e.target.value)} >
+          <option value={"red"}>Red</option>
+          <option value={"green"}>Green</option>
+          <option value={"blue"}>Blue</option>
+          <option value={"yellow"}>Yellow</option>
+        </select>
+        <Clock color={color}/>
+      </h1>
+    </div>
+  )
+}
 export default App;
