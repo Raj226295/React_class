@@ -26,6 +26,8 @@
 //   );
 // }
 
+import { useState } from "react";
+
 // import Clock from "./room11_pre/Clock";
 
 // import Hook1 from "./CEC23012026/Hook";
@@ -665,24 +667,115 @@
 // export default App; 
 
 // =============================28/01/26==================================================================
-import { useState } from "react";
-import Clock from "./room11_pre/Clock.jsx";
-function App(){
-  const[color, setColor]=useState("red");
+// import { useState } from "react";
+// import Clock from "./room11_pre/Clock.jsx";
+// function App(){
+//   const[color, setColor]=useState("red");
 
-  return(
+//   return(
+//     <div>
+//       <h1>
+//         <h1>Digital Clock in React js React Js</h1>
+//         <select onChange={(e) =>setColor(e.target.value)} >
+//           <option value={"red"}>Red</option>
+//           <option value={"green"}>Green</option>
+//           <option value={"blue"}>Blue</option>
+//           <option value={"yellow"}>Yellow</option>
+//         </select>
+//         <Clock color={color}/>
+//       </h1>
+//     </div>
+//   )
+// }
+// export default App;
+// ============================28/01/26==================================================================
+// function App() {
+
+//   const collageData = [
+//     {
+//       name: "ITC",
+//       city: "Alwar",
+//       website: "www.itc.edu.in",
+//       student: [
+//         { name: "Anil", age: 22 },
+//         { name: "Rohit", age: 24 },
+//         { name: "Suman", age: 23 },
+//       ],
+//     },
+//     {
+//       name: "IIT",
+//       city: "Delhi",
+//       website: "www.iit.edu.in",
+//     },
+//     {
+//       name: "NIT",
+//       city: "Noida",
+//       website: "www.nit.edu.in",
+//     }
+//   ];
+
+//   return (
+//     <div>
+//       <h1>Nested looping with component</h1>
+
+//       {collageData.map((collage, index) => (
+//         <div key={index}>
+//           <h2>Name: {collage.name}</h2>
+//           <p>City: {collage.city}</p>
+//           <p>Website: {collage.website}</p>
+
+//           {/* Nested loop (only if students exist) */}
+//           {collage.student && (
+//             <ul>
+//               {collage.student.map((stu, i) => (
+//                 <li key={i}>
+//                   {stu.name} - {stu.age}
+//                 </li>
+//               ))}
+//             </ul>
+//           )}
+//         </div>
+//       ))}
+//     </div>
+//   );
+// }
+
+// export default App;
+ 
+
+// =============02/02/2026========================hooks
+
+import { useState, useEffect } from "react";
+
+function App() {
+  const [counter, setCounter] = useState(0);
+  const [data, setData] = useState(null);
+
+  function callOnce() {
+    console.log("callOnce function called");
+  }
+
+  useEffect(() => {
+    callOnce();
+  }, []); // runs only once (on mount)
+
+  return (
     <div>
-      <h1>
-        <h1>Digital Clock in React js React Js</h1>
-        <select onChange={(e) =>setColor(e.target.value)} >
-          <option value={"red"}>Red</option>
-          <option value={"green"}>Green</option>
-          <option value={"blue"}>Blue</option>
-          <option value={"yellow"}>Yellow</option>
-        </select>
-        <Clock color={color}/>
-      </h1>
+      <h1>useEffect Hook</h1>
+
+      <button onClick={() => setCounter(counter + 1)}>
+        Counter {counter}
+      </button>
+
+      <br /><br />
+
+      <button onClick={() => setData(counter + 1)}>
+        Set Data
+      </button>
+
+      <h3>Data: {data}</h3>
     </div>
-  )
+  );
 }
+
 export default App;
