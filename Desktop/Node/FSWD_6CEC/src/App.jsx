@@ -26,7 +26,7 @@
 //   );
 // }
 
-import { useState } from "react";
+// import { useState } from "react";
 
 // import Clock from "./room11_pre/Clock";
 
@@ -745,35 +745,47 @@ import { useState } from "react";
 
 // =============02/02/2026========================hooks
 
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
+
+// function App() {
+//   const [counter, setCounter] = useState(0);
+//   const [data, setData] = useState(null);
+
+//   function callOnce() {
+//     console.log("callOnce function called");
+//   }
+
+//   useEffect(() => {
+//     callOnce();
+//   }, []); // runs only once (on mount)
+
+//   return (
+//     <div>
+//       <h1>useEffect Hook</h1>
+
+//       <button onClick={() => setCounter(counter + 1)}>
+//         Counter {counter}
+//       </button>
+
+//       <br /><br />
+
+//       <button onClick={() => setData(counter + 1)}>
+//         Set Data
+//       </button>
+
+//       <h3>Data: {data}</h3>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+import UserStateFullExercise from "./components/UserStateFullExercise";
 
 function App() {
-  const [counter, setCounter] = useState(0);
-  const [data, setData] = useState(null);
-
-  function callOnce() {
-    console.log("callOnce function called");
-  }
-
-  useEffect(() => {
-    callOnce();
-  }, []); // runs only once (on mount)
-
   return (
-    <div>
-      <h1>useEffect Hook</h1>
-
-      <button onClick={() => setCounter(counter + 1)}>
-        Counter {counter}
-      </button>
-
-      <br /><br />
-
-      <button onClick={() => setData(counter + 1)}>
-        Set Data
-      </button>
-
-      <h3>Data: {data}</h3>
+    <div style={{ padding: "20px" }}>
+      <UserStateFullExercise />
     </div>
   );
 }
