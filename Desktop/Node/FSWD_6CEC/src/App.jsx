@@ -793,38 +793,61 @@
 // export default App;
 
 // ===================17/02/2026========================use hooks2
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 
-function App() {
+// function App() {
 
-  const [counter, setCounter] = useState(0);
-  const [data, setData] = useState(0);
+//   const [counter, setCounter] = useState(0);
+//   const [data, setData] = useState(0);
 
-  function counterFunction() {
-    console.log("CounterFunction", counter);
-  }
+//   function counterFunction() {
+//     console.log("CounterFunction", counter);
+//   }
 
-  function callOnce() {
-    console.log("callOnce function called");
-  }
+//   function callOnce() {
+//     console.log("callOnce function called");
+//   }
 
-  useEffect(() => {
-    callOnce();
-    counterFunction();
-  }, [counter, data,]);
+//   useEffect(() => {
+//     callOnce();
+//     counterFunction();
+//   }, [counter, data,]);
+
+
+//   return (
+//     <div>
+//       <h1>useEffect Hook</h1>
+//       <button onClick={() => setCounter(counter + 1)}>
+//         Counter {counter}
+//       </button>
+//       <button onClick={() => setData(data + 1)}>
+//         Data {data}
+//       </button>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+
+import Counter  from "./room13pre/Counter";
+import { useState } from "react";
+function App(){
+  const [count,setCount]=useState(0);
+  const [data,setData]=useState(0);
+
 
 
   return (
     <div>
-      <h1>useEffect Hook</h1>
-      <button onClick={() => setCounter(counter + 1)}>
-        Counter {counter}
-      </button>
-      <button onClick={() => setData(data + 1)}>
-        Data {data}
-      </button>
+      <h1>Handle Props Side Effect with useEffect in component</h1>
+      <Counter count={count}/>
+      <button onClick={()=> setCount(count+1)}>Click Me</button>
+      <button onClick={()=> setData(data+1)}>Change Data</button>
+      
     </div>
-  );
+  )
+  
 }
-
 export default App;
