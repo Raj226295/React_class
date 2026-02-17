@@ -780,12 +780,49 @@
 
 // export default App;
 
-import UserStateFullExercise from "./components/UserStateFullExercise";
+// import UserStateFullExercise from "./components/UserStateFullExercise";
+
+// function App() {
+//   return (
+//     <div style={{ padding: "20px" }}>
+//       <UserStateFullExercise />
+//     </div>
+//   );
+// }
+
+// export default App;
+
+// ===================17/02/2026========================use hooks2
+import { useEffect, useState } from "react";
 
 function App() {
+
+  const [counter, setCounter] = useState(0);
+  const [data, setData] = useState(0);
+
+  function counterFunction() {
+    console.log("CounterFunction", counter);
+  }
+
+  function callOnce() {
+    console.log("callOnce function called");
+  }
+
+  useEffect(() => {
+    callOnce();
+    counterFunction();
+  }, [counter, data,]);
+
+
   return (
-    <div style={{ padding: "20px" }}>
-      <UserStateFullExercise />
+    <div>
+      <h1>useEffect Hook</h1>
+      <button onClick={() => setCounter(counter + 1)}>
+        Counter {counter}
+      </button>
+      <button onClick={() => setData(data + 1)}>
+        Data {data}
+      </button>
     </div>
   );
 }
