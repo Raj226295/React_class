@@ -17,30 +17,25 @@
 
 
 
-
 import { useEffect } from "react";
 
 const Counter = ({ counter, data }) => {
 
-    const handleCounter = () => {
-        console.log("handleCounter called");
-    };
-    const handleData = () => {
-        console.log("handleData called");
-    };
 
     useEffect(() => {
-        handleCounter();
-    }, [counter, data]);
+        console.log("mounting phase only");
+    }, [])
 
-    handleData();
+    useEffect(() => {
+        console.log("update phase only");
+    }, [counter])
+
     return (
         <div>
-            <h1>Counter component {counter}</h1>
+            <h1>Counter value{counter}</h1>
+            <h1>Data value{data}</h1>
         </div>
-    );
-};
+    )
 
-export default Counter;
-
-
+}
+export default Counter

@@ -831,23 +831,27 @@
 
 
 
-import Counter  from "./room13pre/Counter";
+
 import { useState } from "react";
-function App(){
-  const [count,setCount]=useState(0);
-  const [data,setData]=useState(0);
+import Counter from "./room13pre/Counter";
+
+function App() {
+    const [count,setCount]=useState(0);
+    const [data,setData]=useState(0);
+    const [display,setDisplay]=useState(true);
+
+    return (
+        <div>
+            {
+                display? <Counter counter={count} data={data} /> : null
 
 
-
-  return (
-    <div>
-      <h1>Handle Props Side Effect with useEffect in component</h1>
-      <Counter count={count}/>
-      <button onClick={()=> setCount(count+1)}>Click Me</button>
-      <button onClick={()=> setData(data+1)}>Change Data</button>
-      
-    </div>
-  )
-  
+            }
+                <button onClick={()=>setCount(count+1)}>Increment Counter</button>
+                <button onClick={()=>setData(data+1)}>Increment Data</button>
+                <button onClick={()=>setDisplay(!display)}>Toggle Display</button>
+        </div>
+    )
 }
+
 export default App;
