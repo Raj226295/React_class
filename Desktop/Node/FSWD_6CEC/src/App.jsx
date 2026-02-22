@@ -832,26 +832,93 @@
 
 
 
-import { useState } from "react";
-import Counter from "./room13pre/Counter";
+// import { useState } from "react";
+// import Counter from "./room13pre/Counter";
+
+// function App() {
+//     const [count,setCount]=useState(0);
+//     const [data,setData]=useState(0);
+//     const [display,setDisplay]=useState(true);
+
+//     return (
+//         <div>
+//             {
+//                 display? <Counter counter={count} data={data} /> : null
+
+
+//             }
+//                 <button onClick={()=>setCount(count+1)}>Increment Counter</button>
+//                 <button onClick={()=>setData(data+1)}>Increment Data</button>
+//                 <button onClick={()=>setDisplay(!display)}>Toggle Display</button>
+//         </div>
+//     )
+// }
+
+// export default App;
+
+// =====================22/02/26============
+
 
 function App() {
-    const [count,setCount]=useState(0);
-    const [data,setData]=useState(0);
-    const [display,setDisplay]=useState(true);
-
-    return (
-        <div>
-            {
-                display? <Counter counter={count} data={data} /> : null
-
-
-            }
-                <button onClick={()=>setCount(count+1)}>Increment Counter</button>
-                <button onClick={()=>setData(data+1)}>Increment Data</button>
-                <button onClick={()=>setDisplay(!display)}>Toggle Display</button>
+  return (
+    <div>
+      <h1 style={{color:'red', background:'yellow'}}> Hello from App component</h1>
+      <div style={{display:'flex', whiteSpace:'nowrap', gap:'20px', padding:'10px', flexWrap:'wrap'}}>
+    <div style={{border:'2px solid black #cccccc3b' , width:'400px', height:'250px', display:'flex', alignItems:'center', gap:'20px', padding:'10px', boxShadow:'2px 2px 5px gray'}}>
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/2ac41f74056361.5c1faf697fd88.jpg" alt="Image" style={{width:'200px', height:'200px'}}/>
+        <div style={{padding:'5px'}}>
+            <h4>Anil shidhu </h4>
+            <p>Software developer</p>
         </div>
-    )
-}
+    </div>
 
-export default App;
+
+    <div style={{border:'2px solid black #cccccc3b', width:'400px', height:'250px', display:'flex', alignItems:'center', gap:'20px', padding:'10px', boxShadow:'2px 2px 5px gray'}}>
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/2ac41f74056361.5c1faf697fd88.jpg" alt="Image" style={{width:'200px', height:'200px'}}/>
+        <div style={{padding:'5px'}}>
+            <h4>Anil shidhu </h4>
+            <p>Software developer</p>
+        </div>
+    </div>
+
+
+
+    <div style={{border:'2px solid black #cccccc3b', width:'400px', height:'250px', display:'flex', alignItems:'center', gap:'20px', padding:'10px', boxShadow:'2px 2px 5px gray'}}>
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/2ac41f74056361.5c1faf697fd88.jpg" alt="Image" style={{width:'200px', height:'200px'}}/>
+        <div style={{padding:'5px'}}>
+            <h4>Anil shidhu </h4>
+            <p>Software developer</p>
+        </div>
+    </div>
+
+    <div style={{border:'2px solid black #cccccc3b', width:'400px', height:'250px', display:'flex', alignItems:'center', gap:'20px', padding:'10px', boxShadow:'2px 2px 5px gray'}}>
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/2ac41f74056361.5c1faf697fd88.jpg" alt="Image" style={{width:'200px', height:'200px'}}/>
+        <div style={{padding:'5px'}}>
+            <h4>Anil shidhu </h4>
+            <p>Software developer</p>
+        </div>
+    </div>
+
+    <div style={{border:'2px solid black #cccccc3b', width:'400px', height:'250px', display:'flex', alignItems:'center', gap:'20px', padding:'10px', boxShadow:'2px 2px 5px gray'}}>
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/2ac41f74056361.5c1faf697fd88.jpg" alt="Image" style={{width:'200px', height:'200px'}}/>
+        <div style={{padding:'5px'}}>
+            <h4>Anil shidhu </h4>
+            <p>Software developer</p>
+        </div>
+    </div>
+
+    <div style={{border:'2px solid black #cccccc3b', width:'400px', height:'250px', display:'flex', alignItems:'center', gap:'20px', padding:'10px', boxShadow:'2px 2px 5px gray'}}>
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/2ac41f74056361.5c1faf697fd88.jpg" alt="Image" style={{width:'200px', height:'200px'}}/>
+        <div style={{padding:'5px'}}>
+            <h4>Anil shidhu </h4>
+            <p>Software developer</p>
+        </div>
+    </div>
+
+    </div>
+    </div>
+
+
+
+  )
+} export default App;
