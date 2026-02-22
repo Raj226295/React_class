@@ -859,66 +859,95 @@
 // =====================22/02/26============
 
 
+import { useState } from "react";
+
+
+
 function App() {
+
+  const [cardStyle, setCardStyle] = useState({
+    border: "1px solid #cccccc3b",
+    width: "400px",
+    height: "250px",
+    display: "flex",
+    alignItems: "center",
+    gap: "20px",
+    padding: "10px",
+    boxShadow: "2px 2px 5px gray",
+    margin: "10px",
+    backgroundColor: "white",
+    color: "black"
+  });
+
+  // Theme update function
+  
+  const updateTheme = (bgColor, textColor) => {
+    setCardStyle(prev => ({
+      ...prev,
+      backgroundColor: bgColor,
+      color: textColor
+    }));
+  };
   return (
-    <div>
-      <h1 style={{color:'red', background:'yellow'}}> Hello from App component</h1>
-      <div style={{display:'flex', whiteSpace:'nowrap', gap:'20px', padding:'10px', flexWrap:'wrap'}}>
-    <div style={{border:'2px solid black #cccccc3b' , width:'400px', height:'250px', display:'flex', alignItems:'center', gap:'20px', padding:'10px', boxShadow:'2px 2px 5px gray'}}>
-        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/2ac41f74056361.5c1faf697fd88.jpg" alt="Image" style={{width:'200px', height:'200px'}}/>
-        <div style={{padding:'5px'}}>
-            <h4>Anil shidhu </h4>
+    <>
+      <h1 style={{ color: 'red', background: 'yellow' }}>
+        Hello from App component
+      </h1>
+
+      <button onClick={() => updateTheme('#e0e0e0', 'black')}>
+        Grey Theme
+      </button>
+
+      <button onClick={() => updateTheme('#333', 'white')}>
+        Dark Theme
+      </button>
+
+      <div style={{
+        display: 'flex',
+        gap: '20px',
+        padding: '10px',
+        flexWrap: 'wrap'
+      }}>
+
+        <div style={cardStyle}>
+          <img
+            src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/2ac41f74056361.5c1faf697fd88.jpg"
+            alt="Image"
+            style={{ width: '200px', height: '200px' }}
+          />
+          <div>
+            <h4>Anil shidhu</h4>
             <p>Software developer</p>
+          </div>
         </div>
-    </div>
 
-
-    <div style={{border:'2px solid black #cccccc3b', width:'400px', height:'250px', display:'flex', alignItems:'center', gap:'20px', padding:'10px', boxShadow:'2px 2px 5px gray'}}>
-        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/2ac41f74056361.5c1faf697fd88.jpg" alt="Image" style={{width:'200px', height:'200px'}}/>
-        <div style={{padding:'5px'}}>
-            <h4>Anil shidhu </h4>
+        <div style={cardStyle}>
+          <img
+            src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/2ac41f74056361.5c1faf697fd88.jpg"
+            alt="Image"
+            style={{ width: '200px', height: '200px' }}
+          />
+          <div>
+            <h4>Anil shidhu</h4>
             <p>Software developer</p>
+          </div>
         </div>
-    </div>
 
-
-
-    <div style={{border:'2px solid black #cccccc3b', width:'400px', height:'250px', display:'flex', alignItems:'center', gap:'20px', padding:'10px', boxShadow:'2px 2px 5px gray'}}>
-        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/2ac41f74056361.5c1faf697fd88.jpg" alt="Image" style={{width:'200px', height:'200px'}}/>
-        <div style={{padding:'5px'}}>
-            <h4>Anil shidhu </h4>
+        <div style={cardStyle}>
+          <img
+            src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/2ac41f74056361.5c1faf697fd88.jpg"
+            alt="Image"
+            style={{ width: '200px', height: '200px' }}
+          />
+          <div>
+            <h4>Anil shidhu</h4>
             <p>Software developer</p>
+          </div>
         </div>
-    </div>
 
-    <div style={{border:'2px solid black #cccccc3b', width:'400px', height:'250px', display:'flex', alignItems:'center', gap:'20px', padding:'10px', boxShadow:'2px 2px 5px gray'}}>
-        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/2ac41f74056361.5c1faf697fd88.jpg" alt="Image" style={{width:'200px', height:'200px'}}/>
-        <div style={{padding:'5px'}}>
-            <h4>Anil shidhu </h4>
-            <p>Software developer</p>
-        </div>
-    </div>
+      </div>
+    </>
+  );
+}
 
-    <div style={{border:'2px solid black #cccccc3b', width:'400px', height:'250px', display:'flex', alignItems:'center', gap:'20px', padding:'10px', boxShadow:'2px 2px 5px gray'}}>
-        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/2ac41f74056361.5c1faf697fd88.jpg" alt="Image" style={{width:'200px', height:'200px'}}/>
-        <div style={{padding:'5px'}}>
-            <h4>Anil shidhu </h4>
-            <p>Software developer</p>
-        </div>
-    </div>
-
-    <div style={{border:'2px solid black #cccccc3b', width:'400px', height:'250px', display:'flex', alignItems:'center', gap:'20px', padding:'10px', boxShadow:'2px 2px 5px gray'}}>
-        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/2ac41f74056361.5c1faf697fd88.jpg" alt="Image" style={{width:'200px', height:'200px'}}/>
-        <div style={{padding:'5px'}}>
-            <h4>Anil shidhu </h4>
-            <p>Software developer</p>
-        </div>
-    </div>
-
-    </div>
-    </div>
-
-
-
-  )
-} export default App;
+export default App;
