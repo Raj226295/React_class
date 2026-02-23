@@ -1239,36 +1239,265 @@ import UserProfile from "./UserProfile";
 
 // =============style components =========
 
-import styled from "styled-components";
+// import styled from "styled-components";
+
+// function App() {
+//   const Heading =styled.h4`
+//   Color: red;
+//   border: 1px solid black;
+//   border-radius: 5px;
+//   margin: 10px;
+//   padding: 10px;
+
+//   `
+//   const StyledButton = styled.button`
+//   color: red;
+//   background-color: yellow;
+//   border: none;
+//   border-radius: 5px;
+//   `
+
+
+
+//   return (
+//     <>
+//     <h1> Style Component with React js</h1>
+//     <Heading>Hello Heading</Heading>
+//     <Heading>Hello Heading</Heading>
+//     <Heading>Hello Heading</Heading>
+//     <Heading>Hello Heading</Heading>
+//     <StyledButton>login</StyledButton>
+//     </>
+    
+//   );
+// }
+// export default App;
+
+// ===Basic game Screen
+
+import { useEffect, useState } from "react";
 
 function App() {
-  const Heading =styled.h4`
-  Color: red;
-  border: 1px solid black;
-  border-radius: 5px;
-  margin: 10px;
-  padding: 10px;
+  const [isNight, setIsNight] = useState(false);
+  const [player, setPlayer] = useState({ x: 300, y: 250 });
+  const [enemy, setEnemy] = useState({ x: 100, y: 100 });
+  const [bullets, setBullets] = useState([]);
+  const [health, setHealth] = useState(100);
 
-  `
-  const StyledButton = styled.button`
-  color: red;
-  background-color: yellow;
-  border: none;
-  border-radius: 5px;
-  `
+  const obstacles = [
+    { x: 200, y: 150, width: 120, height: 80 },
+    { x: 500, y: 300, width: 150, height: 100 }
+  ];
 
+  // 🌗 Day/Night Cycle
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsNight(prev => !prev);
+    }, 20000);
+    return () => clearInterval(interval);
+  }, []);
 
+  // 🎮 Player Movement
+  useEffect(() => {
+    const move = (e) => {
+      setPlayer(prev => {
+        let { x, y } = prev;
+        const speed = 15;
+
+        if (e.key === "ArrowUp") y -= speed;
+        if (e.key === "ArrowDown") y += speed;
+        if (e.key === "ArrowLeft") x -= speed;
+        if (e.key === "ArrowRight") x += speed;
+
+        return { x, y };
+      });
+
+      // 🔫 Shoot
+      if (e.key === " ") {
+        shoot();
+      }
+    };
+
+    window.addEventListener("keydown", move);
+    return () => window.removeEventListener("keydown", move);
+  }, []);
+
+  // 🔫 Shooting
+  const shoot = () => {
+    setBullets(prev => [...prev, { x: player.x + 20, y: player.y + 20 }]);
+  };
+
+  // 💥 Bullet movement + collision
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setBullets(prev =>
+        prev
+          .map(b => ({ ...b, x: b.x + 10 }))
+          .filter(b => b.x < window.innerWidth)
+      );
+    }, 50);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  // 👾 Enemy AI (chase player)
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setEnemy(prev => {
+        let dx = player.x - prev.x;
+        let dy = player.y - prev.y;
+
+        return {
+          x: prev.x + dx * 0.02,
+          y: prev.y + dy * 0.02
+        };
+      });
+    }, 50);
+
+    return () => clearInterval(interval);
+  }, [player]);
+
+  // ❤️ Enemy collision damage
+  useEffect(() => {
+    const distance = Math.hypot(player.x - enemy.x, player.y - enemy.y);
+    if (distance < 40) {
+      setHealth(prev => Math.max(prev - 1, 0));
+    }
+  }, [player, enemy]);
+
+  // 💥 Bullet hit enemy
+  useEffect(() => {
+    bullets.forEach(b => {
+      const distance = Math.hypot(b.x - enemy.x, b.y - enemy.y);
+      if (distance < 30) {
+        setEnemy({
+          x: Math.random() * 800,
+          y: Math.random() * 500
+        });
+      }
+    });
+  }, [bullets]);
 
   return (
-    <>
-    <h1> Style Component with React js</h1>
-    <Heading>Hello Heading</Heading>
-    <Heading>Hello Heading</Heading>
-    <Heading>Hello Heading</Heading>
-    <Heading>Hello Heading</Heading>
-    <StyledButton>login</StyledButton>
-    </>
-    
+    <div
+      style={{
+        height: "100vh",
+        background: isNight
+          ? "linear-gradient(#000000, #1a1a1a)"
+          : "linear-gradient(#87CEEB, #ffffff)",
+        position: "relative",
+        overflow: "hidden"
+      }}
+    >
+      <h3 style={{ color: isNight ? "white" : "black", padding: "10px" }}>
+        Health: {health} ❤️
+      </h3>
+
+      {/* Player */}
+      <div
+        style={{
+          position: "absolute",
+          width: 40,
+          height: 40,
+          borderRadius: "50%",
+          background: isNight ? "purple" : "red",
+          left: player.x,
+          top: player.y
+        }}
+      />
+
+      {/* Enemy */}
+      <div
+        style={{
+          position: "absolute",
+          width: 40,
+          height: 40,
+          borderRadius: "50%",
+          background: "green",
+          left: enemy.x,
+          top: enemy.y
+        }}
+      />
+
+      {/* Bullets */}
+      {bullets.map((b, i) => (
+        <div
+          key={i}
+          style={{
+            position: "absolute",
+            width: 10,
+            height: 10,
+            borderRadius: "50%",
+            background: "yellow",
+            left: b.x,
+            top: b.y
+          }}
+        />
+      ))}
+
+      {/* Obstacles */}
+      {obstacles.map((o, i) => (
+        <div
+          key={i}
+          style={{
+            position: "absolute",
+            background: "gray",
+            left: o.x,
+            top: o.y,
+            width: o.width,
+            height: o.height
+          }}
+        />
+      ))}
+
+      {/* 🗺 Mini Map */}
+      <div
+        style={{
+          position: "absolute",
+          right: 20,
+          bottom: 20,
+          width: 150,
+          height: 100,
+          background: "rgba(0,0,0,0.6)",
+          border: "2px solid white"
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            width: 8,
+            height: 8,
+            background: "red",
+            left: (player.x / window.innerWidth) * 150,
+            top: (player.y / window.innerHeight) * 100
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            width: 8,
+            height: 8,
+            background: "green",
+            left: (enemy.x / window.innerWidth) * 150,
+            top: (enemy.y / window.innerHeight) * 100
+          }}
+        />
+      </div>
+
+      {health <= 0 && (
+        <h1
+          style={{
+            color: "red",
+            position: "absolute",
+            top: "40%",
+            left: "40%"
+          }}
+        >
+          GAME OVER
+        </h1>
+      )}
+    </div>
   );
 }
+
 export default App;
