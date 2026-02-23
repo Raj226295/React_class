@@ -26,6 +26,8 @@
 //   );
 // }
 
+import UserProfile from "./UserProfile";
+
 // import { useState } from "react";
 
 // import Clock from "./room11_pre/Clock";
@@ -859,95 +861,371 @@
 // =====================22/02/26============
 
 
-import { useState } from "react";
+// import { useState } from "react";
 
 
+
+// function App() {
+
+//   const [cardStyle, setCardStyle] = useState({
+//     border: "1px solid #cccccc3b",
+//     width: "400px",
+//     height: "250px",
+//     display: "flex",
+//     alignItems: "center",
+//     gap: "20px",
+//     padding: "10px",
+//     boxShadow: "2px 2px 5px gray",
+//     margin: "10px",
+//     backgroundColor: "white",
+//     color: "black"
+//   });
+
+//   // Theme update function
+  
+//   const updateTheme = (bgColor, textColor) => {
+//     setCardStyle(prev => ({
+//       ...prev,
+//       backgroundColor: bgColor,
+//       color: textColor
+//     }));
+//   };
+//   return (
+//     <>
+//       <h1 style={{ color: 'red', background: 'yellow' }}>
+//         Hello from App component
+//       </h1>
+
+//       <button onClick={() => updateTheme('#e0e0e0', 'black')}>
+//         Grey Theme
+//       </button>
+
+//       <button onClick={() => updateTheme('#333', 'white')}>
+//         Dark Theme
+//       </button>
+
+//       <div style={{
+//         display: 'flex',
+//         gap: '20px',
+//         padding: '10px',
+//         flexWrap: 'wrap'
+//       }}>
+
+//         <div style={cardStyle}>
+//           <img
+//             src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/2ac41f74056361.5c1faf697fd88.jpg"
+//             alt="Image"
+//             style={{ width: '200px', height: '200px' }}
+//           />
+//           <div>
+//             <h4>Anil shidhu</h4>
+//             <p>Software developer</p>
+//           </div>
+//         </div>
+
+//         <div style={cardStyle}>
+//           <img
+//             src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/2ac41f74056361.5c1faf697fd88.jpg"
+//             alt="Image"
+//             style={{ width: '200px', height: '200px' }}
+//           />
+//           <div>
+//             <h4>Anil shidhu</h4>
+//             <p>Software developer</p>
+//           </div>
+//         </div>
+
+//         <div style={cardStyle}>
+//           <img
+//             src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/2ac41f74056361.5c1faf697fd88.jpg"
+//             alt="Image"
+//             style={{ width: '200px', height: '200px' }}
+//           />
+//           <div>
+//             <h4>Anil shidhu</h4>
+//             <p>Software developer</p>
+//           </div>
+//         </div>
+
+//       </div>
+//     </>
+//   );
+// }
+
+// export default App;
+
+
+// ===========================23/02/26=========================
+
+
+// import React from "react";
+// import Button from "@mui/material/Button";
+// import Stack from "@mui/material/Stack";
+
+// function App() {
+//   return (
+//     <div style={{ padding: "40px" }}>
+//       <h1>Material UI Buttons</h1>
+
+//       <Stack direction="row" spacing={2}>
+//         <Button variant="outlined">Primary</Button>
+
+//         <Button variant="outlined" disabled>
+//           Disabled
+//         </Button>
+
+//         <Button variant="outlined" href="#outlined-buttons">
+//           Link
+//         </Button>
+//       </Stack>
+//     </div>
+//   );
+
+
+// }
+
+// export default App;
+
+
+// import Stack from '@mui/material/Stack';
+// import Button from '@mui/material/Button';
+
+// export default function ColorButtons() {
+//   return (
+//     <Stack direction="row" spacing={2}>
+//       <Button color="secondary">Secondary</Button>
+//       <Button variant="contained" color="success">
+//         Success
+//       </Button>
+//       <Button variant="outlined" color="error">
+//         Error
+//       </Button>
+//     </Stack>
+//   );
+// }
+
+
+
+
+// import React, { useState, useMemo } from "react";
+// import {
+//   Box,
+//   Table,
+//   TableBody,
+//   TableCell,
+//   TableContainer,
+//   TableHead,
+//   TablePagination,
+//   TableRow,
+//   TableSortLabel,
+//   Toolbar,
+//   Typography,
+//   Paper,
+//   Checkbox,
+//   IconButton,
+//   Tooltip,
+//   FormControlLabel,
+//   Switch,
+// } from "@mui/material";
+
+// import DeleteIcon from "@mui/icons-material/Delete";
+// import FilterListIcon from "@mui/icons-material/FilterList";
+
+// function createData(id, name, calories, fat, carbs, protein) {
+//   return { id, name, calories, fat, carbs, protein };
+// }
+
+// const rows = [
+//   createData(1, "Cupcake", 305, 3.7, 67, 4.3),
+//   createData(2, "Donut", 452, 25.0, 51, 4.9),
+//   createData(3, "Eclair", 262, 16.0, 24, 6.0),
+//   createData(4, "Frozen yoghurt", 159, 6.0, 24, 4.0),
+//   createData(5, "Gingerbread", 356, 16.0, 49, 3.9),
+// ];
+
+// export default function App() {
+//   const [order, setOrder] = useState("asc");
+//   const [orderBy, setOrderBy] = useState("calories");
+//   const [selected, setSelected] = useState([]);
+//   const [page, setPage] = useState(0);
+//   const [rowsPerPage, setRowsPerPage] = useState(5);
+//   const [dense, setDense] = useState(false);
+
+//   const handleSort = (property) => {
+//     const isAsc = orderBy === property && order === "asc";
+//     setOrder(isAsc ? "desc" : "asc");
+//     setOrderBy(property);
+//   };
+
+//   const handleSelectAllClick = (event) => {
+//     if (event.target.checked) {
+//       setSelected(rows.map((row) => row.id));
+//     } else {
+//       setSelected([]);
+//     }
+//   };
+
+//   const handleClick = (id) => {
+//     const selectedIndex = selected.indexOf(id);
+//     let newSelected = [];
+
+//     if (selectedIndex === -1) {
+//       newSelected = [...selected, id];
+//     } else {
+//       newSelected = selected.filter((item) => item !== id);
+//     }
+
+//     setSelected(newSelected);
+//   };
+
+//   const sortedRows = useMemo(() => {
+//     return [...rows].sort((a, b) => {
+//       if (order === "asc") {
+//         return a[orderBy] > b[orderBy] ? 1 : -1;
+//       } else {
+//         return a[orderBy] < b[orderBy] ? 1 : -1;
+//       }
+//     });
+//   }, [order, orderBy]);
+
+//   const visibleRows = sortedRows.slice(
+//     page * rowsPerPage,
+//     page * rowsPerPage + rowsPerPage
+//   );
+
+//   return (
+//     <Box sx={{ width: "100%" }}>
+//       <Paper sx={{ width: "100%", mb: 2 }}>
+
+//         {/* Toolbar */}
+//         <Toolbar>
+//           {selected.length > 0 ? (
+//             <Typography sx={{ flex: "1 1 100%" }}>
+//               {selected.length} selected
+//             </Typography>
+//           ) : (
+//             <Typography sx={{ flex: "1 1 100%" }} variant="h6">
+//               Nutrition
+//             </Typography>
+//           )}
+
+//           {selected.length > 0 ? (
+//             <Tooltip title="Delete">
+//               <IconButton>
+//                 <DeleteIcon />
+//               </IconButton>
+//             </Tooltip>
+//           ) : (
+//             <Tooltip title="Filter">
+//               <IconButton>
+//                 <FilterListIcon />
+//               </IconButton>
+//             </Tooltip>
+//           )}
+//         </Toolbar>
+
+//         <TableContainer>
+//           <Table size={dense ? "small" : "medium"}>
+//             <TableHead>
+//               <TableRow>
+//                 <TableCell padding="checkbox">
+//                   <Checkbox
+//                     checked={
+//                       rows.length > 0 &&
+//                       selected.length === rows.length
+//                     }
+//                     onChange={handleSelectAllClick}
+//                   />
+//                 </TableCell>
+
+//                 {["name", "calories", "fat", "carbs", "protein"].map(
+//                   (head) => (
+//                     <TableCell key={head}>
+//                       <TableSortLabel
+//                         active={orderBy === head}
+//                         direction={orderBy === head ? order : "asc"}
+//                         onClick={() => handleSort(head)}
+//                       >
+//                         {head.toUpperCase()}
+//                       </TableSortLabel>
+//                     </TableCell>
+//                   )
+//                 )}
+//               </TableRow>
+//             </TableHead>
+
+//             <TableBody>
+//               {visibleRows.map((row) => {
+//                 const isItemSelected = selected.includes(row.id);
+
+//                 return (
+//                   <TableRow
+//                     key={row.id}
+//                     selected={isItemSelected}
+//                     hover
+//                     onClick={() => handleClick(row.id)}
+//                   >
+//                     <TableCell padding="checkbox">
+//                       <Checkbox checked={isItemSelected} />
+//                     </TableCell>
+//                     <TableCell>{row.name}</TableCell>
+//                     <TableCell>{row.calories}</TableCell>
+//                     <TableCell>{row.fat}</TableCell>
+//                     <TableCell>{row.carbs}</TableCell>
+//                     <TableCell>{row.protein}</TableCell>
+//                   </TableRow>
+//                 );
+//               })}
+//             </TableBody>
+//           </Table>
+//         </TableContainer>
+
+//         <TablePagination
+//           rowsPerPageOptions={[5, 10]}
+//           component="div"
+//           count={rows.length}
+//           rowsPerPage={rowsPerPage}
+//           page={page}
+//           onPageChange={(e, newPage) => setPage(newPage)}
+//           onRowsPerPageChange={(e) => {
+//             setRowsPerPage(parseInt(e.target.value, 10));
+//             setPage(0);
+//           }}
+//         />
+//       </Paper>
+
+//       <FormControlLabel
+//         control={
+//           <Switch
+//             checked={dense}
+//             onChange={(e) => setDense(e.target.checked)}
+//           />
+//         }
+//         label="Dense padding"
+//       />
+//     </Box>
+//   );
+// }
+
+// =====================23/02/`26========================
 
 function App() {
-
-  const [cardStyle, setCardStyle] = useState({
-    border: "1px solid #cccccc3b",
-    width: "400px",
-    height: "250px",
-    display: "flex",
-    alignItems: "center",
-    gap: "20px",
-    padding: "10px",
-    boxShadow: "2px 2px 5px gray",
-    margin: "10px",
-    backgroundColor: "white",
-    color: "black"
-  });
-
-  // Theme update function
-  
-  const updateTheme = (bgColor, textColor) => {
-    setCardStyle(prev => ({
-      ...prev,
-      backgroundColor: bgColor,
-      color: textColor
-    }));
-  };
   return (
-    <>
-      <h1 style={{ color: 'red', background: 'yellow' }}>
-        Hello from App component
-      </h1>
-
-      <button onClick={() => updateTheme('#e0e0e0', 'black')}>
-        Grey Theme
-      </button>
-
-      <button onClick={() => updateTheme('#333', 'white')}>
-        Dark Theme
-      </button>
-
-      <div style={{
-        display: 'flex',
-        gap: '20px',
-        padding: '10px',
-        flexWrap: 'wrap'
-      }}>
-
-        <div style={cardStyle}>
-          <img
-            src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/2ac41f74056361.5c1faf697fd88.jpg"
-            alt="Image"
-            style={{ width: '200px', height: '200px' }}
-          />
-          <div>
-            <h4>Anil shidhu</h4>
-            <p>Software developer</p>
-          </div>
-        </div>
-
-        <div style={cardStyle}>
-          <img
-            src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/2ac41f74056361.5c1faf697fd88.jpg"
-            alt="Image"
-            style={{ width: '200px', height: '200px' }}
-          />
-          <div>
-            <h4>Anil shidhu</h4>
-            <p>Software developer</p>
-          </div>
-        </div>
-
-        <div style={cardStyle}>
-          <img
-            src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/2ac41f74056361.5c1faf697fd88.jpg"
-            alt="Image"
-            style={{ width: '200px', height: '200px' }}
-          />
-          <div>
-            <h4>Anil shidhu</h4>
-            <p>Software developer</p>
-          </div>
-        </div>
-
+    <div>
+      <h1>Hello from App component</h1>
+      
+      <div style={{display:"flex" ,flexWrap:"wrap", gap:"20px"}}>
+      <UserProfile/>
+      <UserProfile/>
+      <UserProfile/>
+      <UserProfile/>
+      <UserProfile/>
+      <UserProfile/>
       </div>
-    </>
+
+      
+
+    </div>
   );
 }
-
 export default App;
