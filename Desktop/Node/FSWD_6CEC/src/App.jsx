@@ -1209,23 +1209,66 @@ import UserProfile from "./UserProfile";
 
 // =====================23/02/`26========================
 
+// import styled from "styled-components";
+
+// function App() {
+//   const Heading =styled.h4`
+//   `
+//   return (
+//     <div>
+//       <h1>Hello from App component</h1>
+
+//       <Heading>Hello Heading</Heading>
+      
+//       <div style={{display:"flex" ,flexWrap:"wrap", gap:"20px"}}>
+//       <UserProfile/>
+//       <UserProfile/>
+//       <UserProfile/>
+//       <UserProfile/>
+//       <UserProfile/>
+//       <UserProfile/>
+//       </div>
+
+      
+
+//     </div>
+//   );
+// }
+// export default App;
+
+
+// =============style components =========
+
+import styled from "styled-components";
+
 function App() {
+  const Heading =styled.h4`
+  Color: red;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px;
+
+  `
+  const StyledButton = styled.button`
+  color: red;
+  background-color: yellow;
+  border: none;
+  border-radius: 5px;
+  `
+
+
+
   return (
-    <div>
-      <h1>Hello from App component</h1>
-      
-      <div style={{display:"flex" ,flexWrap:"wrap", gap:"20px"}}>
-      <UserProfile/>
-      <UserProfile/>
-      <UserProfile/>
-      <UserProfile/>
-      <UserProfile/>
-      <UserProfile/>
-      </div>
-
-      
-
-    </div>
+    <>
+    <h1> Style Component with React js</h1>
+    <Heading>Hello Heading</Heading>
+    <Heading>Hello Heading</Heading>
+    <Heading>Hello Heading</Heading>
+    <Heading>Hello Heading</Heading>
+    <StyledButton>login</StyledButton>
+    </>
+    
   );
 }
 export default App;
